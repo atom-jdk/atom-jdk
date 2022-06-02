@@ -1,0 +1,35 @@
+package com.company;
+
+
+import java.io.PrintStream;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+         printMegabteAndKiloByte(2500);
+         printMegabteAndKiloByte(450);
+         printMegabteAndKiloByte(1024);
+         printMegabteAndKiloByte(7654);
+         printMegabteAndKiloByte(-1233);
+
+
+
+    }
+    public  static void printMegabteAndKiloByte(int kilobyte){
+
+
+        int kb = kilobyte%1024;
+        int mb = kilobyte/1024;
+           if (kilobyte<0){
+               System.out.println("invalid entry");
+           }else {
+               System.out.println(kilobyte + " KB = " + kb + " KB " + mb + " MB");
+           }
+
+
+
+    }
+
+}
