@@ -1,0 +1,28 @@
+public class Main {
+
+        public static void main(String[] args) {
+            printYearsAndDays(525600);
+            printYearsAndDays(-123444);
+            printYearsAndDays(561600);
+            printYearsAndDays(1051200);
+
+
+
+        }
+
+        public static void printYearsAndDays(long minutes){
+
+            long years = minutes /525600 ;
+            int remainder = (int) minutes%525600;
+            int days = remainder/1440;
+
+            if (minutes<0){
+                System.out.println("invalid entry");
+            } else
+                System.out.println(minutes+" min = "+years+ " yr " +days+ " dd" );
+        }
+
+
+
+
+}
