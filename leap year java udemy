@@ -1,0 +1,38 @@
+package com.company;
+
+
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter a year");
+        int year = scanner.nextInt();
+
+        boolean leapyear = false;
+
+        if (year %4==0){
+            leapyear=true;
+
+            if (year % 100 == 0) {
+                if (year % 400 == 0)
+                leapyear =true;
+
+                else leapyear =false;
+            }
+        }
+        if (leapyear){
+            System.out.println(year+" is a leap year");
+        }
+        else if (!leapyear){
+            System.out.println(year+" is not a leap year");
+        }
+
+    }
+
+
+
+
+}
