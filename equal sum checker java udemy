@@ -1,0 +1,22 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        hasEqualSum(0,1,1);
+        hasEqualSum(2,3,4);
+        hasEqualSum(2,5,7);
+        hasEqualSum(3,0,3);
+        hasEqualSum(4,5,6);
+
+    }
+    public static boolean hasEqualSum(int num1,int num2, int num3) {
+        if ((num1 + num2 == num3)) {
+            System.out.println("the sum is right");
+            return true;
+
+        }
+        System.out.println("the sum is wrong");
+         return false;
+    }
+}
