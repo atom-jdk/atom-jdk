@@ -1,0 +1,36 @@
+public class Main {
+
+        public static void main(String[] args) {
+
+            firstAndLastDigitSum(123455);
+            firstAndLastDigitSum(2343);
+            firstAndLastDigitSum(5);
+
+
+
+        }
+
+        public static void firstAndLastDigitSum(int n){
+            int last=0;
+
+
+            if (n>0){
+                 last = n%10;
+            }
+
+            while (n>9){
+                n =n/10;
+            }
+
+            int net = last +n;
+            System.out.println(net);
+
+
+
+
+
+
+
+        }
+        }
+
