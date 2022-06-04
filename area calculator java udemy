@@ -1,0 +1,30 @@
+public class Main {
+
+        public static void main(String[] args)
+        {
+           area(5.0);
+           area(-1);
+           area(5,4);
+           area(-1,3);
+        }
+
+        public static void area(double n1) {
+
+            if (n1 < 0) {
+                System.out.println("invalid input");
+            } else
+                System.out.println("area of circle with radius " + n1 + " = " + Math.PI * n1 * n1);
+
+        }
+
+        public static void area(double n1,double n2){
+            if (n1<0||n2<0){
+                System.out.println("invalid entry");
+            }else System.out.println("area of rectangle with sides "+n1+" and "+n2+" = "+ n1*n2);
+        }
+
+
+
+
+
+}
