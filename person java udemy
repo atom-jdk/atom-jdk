@@ -1,0 +1,75 @@
+main!!!!!!
+
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setFirstname("");
+        person.setSecondname("");
+        person.setAge(10);
+        System.out.println("full name = "+person.getfullname());
+        System.out.println("teen = "+person.isteen());
+    }
+}
+
+PERSON!!!!!
+
+
+public class Person {
+
+    private String firstname;
+    private String secondname;
+    private int age;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getSecondname() {
+        return secondname;
+    }
+
+    public void setSecondname(String secondname) {
+        this.secondname = secondname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age<0||age>100){
+            this.age=0;
+        }else
+        this.age = age;
+    }
+
+    public boolean isteen(){
+        if (age>12&&age<20){
+            return true;
+        }else return false;
+    }
+    public String getfullname(){
+        if (firstname==null&&secondname==null){
+
+            System.out.println("No name given");
+            return null;
+        }
+        else if (firstname==null){
+            return secondname;
+        }else if (secondname==null){
+            return firstname;
+        }
+        else return firstname+secondname;
+    }
+
+
+
+}
