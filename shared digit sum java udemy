@@ -1,0 +1,43 @@
+
+public class Main {
+
+        public static void main(String[] args) {
+
+            sharedDigitSum(12,23);
+            sharedDigitSum(9,99);
+            sharedDigitSum(15,55);
+
+
+                }
+
+                public static void sharedDigitSum(int n1,int n2){
+            int r1 =0;
+            int r2 =0;
+            int l1=0;
+            int l2=0;
+
+            if (n1<10||n1>99){
+                System.out.println("invalid entry");
+
+            }else while (n1>0){
+                int digit = n1%10;
+                digit = r1;
+                n1=n1/10;
+                n1=l1;
+            }
+
+            if (n2<10||n2>99){
+                System.out.println("invalid entry");
+            }else while (n2>0){
+                int digit1 = n2%10;
+                digit1=r2;
+                n2=n2/10;
+                n2 =l2;
+            }
+
+            if (r1==r2||r1==l2||r2==l1){
+                System.out.println("the have a shared digit");
+
+            }else System.out.println("they don't have a shared digit");
+                }
+            }
