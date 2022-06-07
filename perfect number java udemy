@@ -1,0 +1,27 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+       perfect(6);
+       perfect(12);
+       perfect(28);
+       perfect(-12);
+
+    }
+
+    public static void perfect(int n1){
+        int sum =0;
+        if (n1>0){
+            for ( int i=1;i<n1;i++){
+                if (n1%i==0){
+                   sum+=i;
+                }
+
+            }
+            if (sum==n1){
+                System.out.println("the number " +n1+" is a perfect number");
+            }else System.out.println("the number "+n1+" is not a perfect number");
+        }else System.out.println("invalid entry");
+    }
+
+}
