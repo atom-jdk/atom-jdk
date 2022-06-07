@@ -1,0 +1,21 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        allFactors(6);
+        allFactors(12);
+        allFactors(-24);
+        allFactors(45);
+
+    }
+
+    public static void allFactors(int n1){
+        if (n1>0){
+            for ( int i=1;i<n1;i++){
+                if (n1%i==0){
+                    System.out.println(i+" ");
+                }
+            }
+        }
+    }
+
