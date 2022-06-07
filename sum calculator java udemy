@@ -1,0 +1,51 @@
+// SUM CALCULATOR CLASS !!!!!!!!
+
+ private double firstnumber;
+    private double secondnumber;
+
+
+    public double getFirstnumber() {
+        return firstnumber;
+    }
+
+    public void setFirstnumber(double firstnumber) {
+        this.firstnumber = firstnumber;
+    }
+
+    public double getSecondnumber() {
+        return secondnumber;
+    }
+
+    public void setSecondnumber(double secondnumber) {
+        this.secondnumber = secondnumber;
+    }
+
+    public double getadditionresult(){
+        return firstnumber+secondnumber;
+    }
+    public double getsubstractionresult(){
+        return firstnumber - secondnumber;
+    }
+    public doublegetmultiplicationresult(){
+        return firstnumber*secondnumber;
+    }
+
+
+MAIN CLASS!!!!
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        SumCalculator calculator = new SumCalculator();
+
+        calculator.setFirstnumber(5.0);
+        calculator.setSecondnumber(2.0);
+        System.out.println("addition = "+ calculator.getadditionresult());
+        System.out.println("subtraction = "+calculator.getsubstractionresult());
+        
+
+
+
+    }
+}
