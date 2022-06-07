@@ -1,0 +1,29 @@
+public class Main {
+
+        public static void main(String[] args) {
+            lastDigitChecker(41,72,21);
+            lastDigitChecker(23,109,99);
+            lastDigitChecker(9,19,999);
+            lastDigitChecker(23,45,87);
+
+
+                }
+
+                public static void lastDigitChecker(int n1,int n2,int n3){
+
+            if (n1 <10||n1>1000||n2<10||n2>1000||n3<10||n3>1000){
+                System.out.println("invalid entry");
+
+            }else {
+                int n1Last =n1%10;
+                int n2Last = n2%10;
+                int n3Last = n3%10;
+                if (n1Last==n2Last||n1Last==n3Last||n2Last==n3Last){
+                    System.out.println("they have a last digit same");
+                }else System.out.println("they don't have last digit same");
+
+            }
+
+
+                }
+            }
