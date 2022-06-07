@@ -1,0 +1,29 @@
+public class Main {
+
+    public static void main(String[] args) {
+        greatestCommonDivisor(12,30);
+        greatestCommonDivisor(9,33);
+        greatestCommonDivisor(11,77);
+
+
+    }
+
+    public static void greatestCommonDivisor(int n1,int n2){
+        int greatest =0;
+
+        if (n1<10||n2<10){
+            System.out.println("invalid entry");
+        }
+        else {
+            for (int i=1;i<n1&&i<n2;i++) {
+                if (i % n1 == 0 && i % n2 == 0) {
+                    greatest = i;
+                    
+                }
+
+            }
+        }
+
+
+    }
+}
