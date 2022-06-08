@@ -1,0 +1,23 @@
+public class Main {
+
+    public static void main(String[] args) {
+	int[] array = {106,26,81,5,15};
+        System.out.println("array = "+ Arrays.toString(array));
+        reverse(array);
+        
+        System.out.println("reversed array = "+ Arrays.toString(array));
+
+    }
+    public static void reverse(int[] array){
+     int maxindex = array.length-1;
+     int halflength = array.length/2;
+     for (int i=0;i<halflength;i++){
+         int temp = array[i];
+         array[i]=array[maxindex-i];
+         array[maxindex-i]=temp;
+
+
+        }
+
+    }
+}
