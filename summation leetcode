@@ -1,0 +1,40 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter the size of array");
+        int size = scanner.nextInt();
+        int arr1[] = new int[size];
+        int arr2[] = new int[size];
+        for (int i=0;i<size;i++){
+            System.out.println("enter element of arr1 with index = "+i);
+            arr1[i]=scanner.nextInt();
+
+        }
+        for (int j=0;j<size;j++){
+            System.out.println("enter element of arr2 with index = "+j);
+            arr2[j]=scanner.nextInt();
+        }
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2 ));
+        int sum=0;
+
+        for (int h=0;h<size;h++){
+            if ((arr1[h]%2==0)&&(arr2[h]%2==0)){
+                sum+=arr1[h]+arr2[h];
+                System.out.println(sum);
+                sum=0;
+
+            }
+            else System.out.println(sum);
+        }
+
+
+    }
+
+}
