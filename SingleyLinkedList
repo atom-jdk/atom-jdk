@@ -1,0 +1,284 @@
+public class SinglyLinkedlist {
+    private ListNode head;
+    private static class ListNode{
+        private int data;
+        private ListNode next;
+        public ListNode(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    public void display(){
+        ListNode current = head;
+        while (current!= null)  {
+            System.out.print(current.data+"-->");
+            current=current.next;
+        }
+        System.out.println("null");
+    }
+    public int count(){
+        int count=0;
+        ListNode current=head;
+        while (current!=null){
+            count++;
+            current=current.next;
+        }
+        return count;
+
+    }
+    public void insertfirst(int value){
+        ListNode newnode=new ListNode(value);
+        newnode.next=head;
+        head=newnode;
+    }
+    public void insertlast(int value){
+        ListNode newnode=new ListNode(value);
+        if (head==null){
+            head=newnode;
+            return;
+        }
+        ListNode current=head;
+        while (null!=current.next){
+            current=current.next;
+        }
+        current.next=newnode;
+    }
+    public void insert(int position,int value){
+        ListNode newnode=new ListNode(value);
+        if (position==1){
+            newnode.next=head;
+            head=newnode;
+        }else {
+            ListNode previous=head;
+            int count=1;
+            while (count<position-1){
+                previous=previous.next;
+                count++;
+            }
+            ListNode current =previous.next;
+            previous.next=newnode;
+            newnode.next=current;
+        }
+
+    }
+    public ListNode deletefirst(){
+        if (head==null){
+            return null;
+        }
+        ListNode temp =head;
+        head=head.next;
+        temp.next=null;
+        return temp;
+    }
+    public ListNode deletelast(){
+        if (head==null||head.next==null){
+            return head;
+        }
+            ListNode current=head;
+            ListNode previous =null;
+            while (current.next!=null){
+                previous=current;
+                current=current.next;
+            }
+
+            previous.next=null;
+            return current;
+
+
+    }
+    public void delete(int position){
+//        3-->4-->7-->8-->9-->null
+        if (position==1){
+            head=head.next;
+
+        }else {
+            ListNode previous=head;
+            int count=1;
+            while (count<position-1){
+                previous=previous.next;
+                count++;
+
+            }
+            ListNode current=previous.next;
+            previous.next=current.next;
+        }
+    }
+    public boolean search(ListNode head, int searchKey){
+        if (head==null){
+            return false;
+        }
+        ListNode current =head;
+        int count=1;
+        while (current!=null){
+            if (current.data==searchKey){
+                return true;
+            }
+            current=current.next;
+            count++;
+//            return count;/
+        }
+        return false;
+    }
+    public ListNode getmiddlenode(){
+        if (head==null){
+            return null;
+        }
+        ListNode slowptr=head;
+        ListNode fastptr=head;
+        while (fastptr!=null&&fastptr.next!=null){
+            slowptr=slowptr.next;
+            fastptr=fastptr.next.next;
+        }
+        return slowptr;
+    }
+    public ListNode nthFromLast(int n){
+        ListNode mainptr=head;
+        ListNode refptr=head;
+        int count=0;
+        while (count<n){
+            refptr=refptr.next;
+            count++;
+        }
+        while (refptr!=null){
+            refptr=refptr.next;
+            mainptr=mainptr.next;
+        }
+        return mainptr;
+
+    }
+
+    public void removeDuplicate(){
+        ListNode current =head;
+        while (current!=null&&current.next!=null){
+            if (current.data==current.next.data){
+                current.next=current.next.next;
+            }else {
+                current=current.next;
+            }
+        }
+    }
+    public ListNode nodeInSorted(int value){
+        ListNode newnode=new ListNode(value);
+        ListNode currrent =head;
+        ListNode temp=null;
+        while (currrent!=null&&currrent.data<newnode.data){
+            temp=currrent;
+            currrent=currrent.next;
+        }
+        newnode.next=currrent;
+        temp.next=newnode;
+        return head;
+    }
+    public void deletenode(int key){
+        ListNode current=head;
+        ListNode temp=null;
+        while (current!=null&&current.data!=key){
+            temp=current;
+            current=current.next;
+
+        }
+        if (current==null)return;
+        temp.next=current.next;
+    }
+    public boolean detectLoop(){
+        ListNode fastptr=head;
+        ListNode slowptr=head;
+        while (fastptr!=null&&fastptr.next!=null){
+            fastptr=fastptr.next.next;
+            slowptr=slowptr.next;
+            if (fastptr==slowptr){
+                return true;
+            }
+
+        }
+        return false;
+    }
+    public void createloop(){
+        ListNode first=new ListNode(1);
+        ListNode second=new ListNode(2);
+        ListNode third=new ListNode(3);
+        ListNode fourth=new ListNode(4);
+        ListNode fifth=new ListNode(5);
+        ListNode sixth=new ListNode(6);
+        head=first;
+        first.next=second;
+        second.next=third;
+        third.next=fourth;
+        fourth.next=fifth;
+        fifth.next=sixth;
+        sixth.next=third;
+    }
+    public ListNode findStartOfLoop() {
+        ListNode fastptr = head;
+        ListNode slowptr = head;
+        while (fastptr != null && fastptr.next != null) {
+            fastptr = fastptr.next.next;
+            slowptr = slowptr.next;
+            if (fastptr == slowptr) {
+                return getstartingnode(slowptr);
+            }
+
+        }
+        return null;
+    }
+
+
+        private ListNode getstartingnode (ListNode slowptr){
+            ListNode temp = head;
+            while (slowptr != head) {
+                temp = temp.next;
+                slowptr = slowptr.next;
+            }
+            return temp;
+        }
+
+
+
+    public static void main(String[] args) {
+        SinglyLinkedlist sll=new SinglyLinkedlist();
+        sll.createloop();
+        System.out.println(sll.detectLoop());
+        System.out.println(sll.findStartOfLoop().data);
+//        sll.head=new ListNode(1);
+//        ListNode second=new ListNode(2);
+//        ListNode third=new ListNode(3);
+//        ListNode fourth=new ListNode(4);
+//        ListNode fifth=new ListNode(5);
+//        ListNode sixth=new ListNode(6);
+//        sll.head.next=second;
+//        second.next=third;
+//        third.next=fourth;
+//        fourth.next=fifth;
+//        fifth.next=sixth;
+//        sixth.next=third;
+//        sll.insert(3,2);
+//        sll.removeDuplicate();
+//        if (sll.search(sll.head,9 )){
+//            System.out.println("search key found");
+//        }else System.out.println("search ley not found");
+//        sll.delete(4);
+//        sll.deletelast();
+//        sll.deletefirst();
+
+//        sll.insertlast(11);
+//        sll.insertlast(10);
+//        sll.insertfirst(1);
+//     ListNode middle=   sll.getmiddlenode();
+//        System.out.println("middle node is "+middle);
+
+
+//        ListNode middle=   sll.getmiddlenode();
+//        System.out.println("middle node is "+middle.data);
+//        ListNode nthlast=sll.nthFromLast(2);
+//        System.out.println("2nd last term is -->"+nthlast.data);
+//        sll.nodeInSorted(4);
+////        sll.deletenode(4);
+
+
+
+
+
+
+    }
+
+}
