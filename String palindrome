@@ -1,0 +1,21 @@
+    public boolean ispalindrome(java.lang.String word){
+        char[] chArr= word.toCharArray();
+        int start =0;
+        int end=word.length() -1;
+        while (start<end){
+            if (chArr[start] !=chArr[end]) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String string=new String();
+        if (string.ispalindrome("madam")){
+            System.out.println("given string is a palindorme");
+        }else System.out.println("given string is not a palindrome");
+    }
+}
