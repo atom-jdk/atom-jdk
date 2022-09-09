@@ -1,0 +1,112 @@
+import javax.swing.tree.TreeNode;
+import java.util.Stack;
+
+public class Binarytree {
+
+    private Treenode root;
+
+    private class Treenode {
+        private Treenode left;
+        private Treenode right;
+        private int data;
+
+        public Treenode(int data){
+            this.data=data;
+        }
+
+
+
+    }
+
+
+    public void createtree(){
+        Treenode first=new Treenode(1);
+        Treenode second=new Treenode(9);
+        Treenode third=new Treenode(7);
+        Treenode fourth=new Treenode(3);
+        Treenode fifth=new Treenode(6);
+        root=first;
+        first.left=third;
+        first.right=second;
+        second.right=fourth;
+        second.left=fifth;
+
+
+    }
+ public void preorder(Treenode root){ //recursive method
+        if (root==null){
+            return;
+        }
+        System.out.print(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+    public void preorder(){   //iterative method
+        if (root==null){
+            return;
+        }
+        Stack<Treenode> stack=new Stack<>();
+        stack.push(root);
+        System.out.println("");
+        while (!stack.isEmpty()){
+            Treenode temp=stack.pop();
+            System.out.print(" "+temp.data);
+            if (temp.right!=null){
+                stack.push(temp.right);
+            }
+            if (temp.left!=null){
+                stack.push(temp.left);
+            }
+        }
+    }
+    public void inorder(Treenode root){ //recursive method
+        if (root==null){
+            return;
+        }
+        inorder(root.left);
+        System.out.print(root.data+" ");
+        inorder(root.right);
+    }
+    public void inorder(){ //iterative method
+        if (root==null){
+            return;
+        }
+        Stack<Treenode> stack=new Stack<>();
+        Treenode temp=root;
+        while (!stack.isEmpty()||temp!=null){
+            if (temp!=null){
+                stack.push(temp);
+                temp=temp.left;
+            }else {
+                temp=stack.pop();
+                System.out.print(temp.data+" ");
+                temp=temp.right;
+            }
+        }
+    }
+
+    public void postorder(Treenode root){ //recursive method
+        if (root==null){
+            return;
+        }
+        inorder(root.left);
+        inorder(root.right);
+        System.out.print(root.data+" ");
+    }
+
+
+
+    public static void main(String[] args) {
+        Binarytree bt=new Binarytree();
+        bt.createtree();
+        bt.preorder(bt.root);
+        bt.preorder();
+        System.out.println(" ");
+        bt.inorder(bt.root);
+        System.out.println("");
+        bt.inorder();
+        System.out.println(" ");
+        bt.postorder(bt.root);
+
+    }
+}
