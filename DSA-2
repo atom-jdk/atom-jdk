@@ -22,3 +22,45 @@ public class DSA2 {
         r.reverse(arr);
     }
 }
+
+
+// C SOLUTION !!!!
+# include<stdio.h>
+
+void print(int arr[],int size){
+    int i;
+    for(int i=0;i<size;i++){
+        printf(" %d",arr[i]);
+    
+    }
+    printf("\n");
+
+
+
+}
+void reverse(int arr[],int start,int end){
+    int i;
+    while(start<end){
+        int temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+    }
+    
+
+    
+    
+}
+
+int main()
+{
+    int arr[]={6,5,4,3,2,1};
+     int n=sizeof(arr)/sizeof(arr[0]);
+    print(arr,n);
+    reverse(arr,0,n-1);
+    
+    print(arr,n);
+
+    return 0;
+}
