@@ -1,0 +1,37 @@
+class Solution {
+//     public int maxProfit(int[] prices) {
+        
+
+//        int n = prices.length;
+//        int maxp = 0;
+//        int buy = Integer.MAX_VALUE;
+//        for (int i = 1; i < n; i++) {
+//            if (buy>prices[i]){
+//                buy=prices[i];
+//            }else if (prices[i]-buy>maxp){
+//                maxp=prices[i]-buy;
+//            }
+//            if (maxp<0){
+//                maxp=0;
+//            }
+
+
+//        }
+//        return maxp;
+//    }
+        
+//     }
+
+    public int maxProfit(int[] prices) {
+        int maxProf = 0, j = 0;
+        for (int i = 1; i < prices.length; i ++){
+          int compare = prices[i] - prices[j];
+          if(compare > maxProf){
+            maxProf = compare;
+          }     
+          if(prices[i] < prices[j])
+              j = i;
+        }
+        return maxProf;
+    }
+}
