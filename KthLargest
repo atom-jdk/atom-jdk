@@ -1,0 +1,20 @@
+MY!!!!
+
+import java.util.Arrays;
+
+public class KthLargest {
+
+    public int KLargest(int[] nums,int k){
+        int n=nums.length;
+        Arrays.sort(nums);
+        return nums[n-k];
+    }
+
+    public static void main(String[] args) {
+        KthLargest kl=new KthLargest();
+        int arr[]={3,2,3,1,2,4,5,5,6};
+        kl.KLargest(arr,7);
+
+    }
+
+}
